@@ -12,7 +12,9 @@ jobs:
       with:  
         python-version: 3.7
     - name: Install dependencies
-      run: |  
+      run: | 
+        cd /api_yamdb
+        python -m pip install --upgrade pip 
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8->
         pip install -r requirements.txt 
     - name: Test with flake8 and django tests
@@ -26,9 +28,6 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2 
-      - name: Change directory
-        run: |
-          cd api_yamdb/
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1 
       - name: Login to Docker 
