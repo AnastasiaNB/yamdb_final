@@ -5,9 +5,6 @@ on: [push]
 jobs:
   tests: 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /api_yamdb
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
@@ -15,6 +12,7 @@ jobs:
       with:  
         python-version: 3.7
     - name: Install dependencies
+      working-directory: /api_yamdb
       run: | 
         python -m pip install --upgrade pip 
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8->
@@ -52,7 +50,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фра>
+        # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фра>  
         script: |
           sudo docker pull anastasianb/yamdb
           sudo docker stop $(sudo docker ps -a -q)
