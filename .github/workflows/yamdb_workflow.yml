@@ -13,7 +13,7 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: | 
-        pip install flake8 pep8-naming flake8-broken-line flake8-return flake8->
+        pip install flake8 pep8-naming flake8-broken-line flake8-return
         pip install -r /api_yamdb/requirements.txt 
     - name: Test with flake8 and django tests
       run: |
