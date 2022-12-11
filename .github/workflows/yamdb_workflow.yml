@@ -42,8 +42,9 @@ jobs:
           push: true
           tags: anastasianb/yamdb:latest
       - name: Docker-compose up
-        working-directory: ~/infra
         run: |
+          cd ..
+          cd /infra
           docker-compose up
   deploy:
     runs-on: ubuntu-latest
