@@ -50,8 +50,8 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }} 
         script: |
-          scp -r /infra anastasia@practikum:~
-          cd /infra 
+          scp -r infra ${{ secrets.USER }}@${{ secrets.HOST }}:~
+          cd infra 
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
