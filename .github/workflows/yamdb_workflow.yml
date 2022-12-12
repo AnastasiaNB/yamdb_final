@@ -50,6 +50,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }} 
         script: |
+          sudo docker pull anastasianb/yamdb:latest
           scp -r infra/nginx ${{ secrets.USER }}@${{ secrets.HOST }}:~
           scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
           cd infra 
