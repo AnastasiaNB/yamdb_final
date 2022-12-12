@@ -50,8 +50,11 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }} 
         script: |
-          scp -r infra ${{ secrets.USER }}@${{ secrets.HOST }}:~
+          scp -r infra/nginx ${{ secrets.USER }}@${{ secrets.HOST }}:~
+          scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
           cd infra 
+          sudo docker-compose stop
+          sudo docker-compose rm web
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
