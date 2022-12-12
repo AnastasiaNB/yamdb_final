@@ -50,7 +50,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }} 
         script: |
-          cd infra
+          scp docker-compose.yaml
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
