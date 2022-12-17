@@ -23,7 +23,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - nginx_value:./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
     depends_on:
@@ -33,5 +33,4 @@ volumes:
   static_value:
   media_value:
   db_value:
-  nginx_value:
 
