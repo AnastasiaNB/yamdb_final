@@ -1,7 +1,7 @@
 # yamdb_final       
 yamdb_final   
 ![](https://github.com/AnastasiaNB/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
-Cтек технологий:
+# Cтек технологий:
 Python Django Django REST Framework PostgreSQL JWT Nginx gunicorn Docker Docker-compose DockerHub GitHubActions Yandex.Cloud
 
 Запуск проекта:
