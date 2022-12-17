@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:13.0-alpine
     volumes:
-      - /var/lib/postgresql/data/
+      - db:/var/lib/postgresql/data/
     env_file:
       - ./.env
   web:
@@ -23,7 +23,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - nginx:./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
     depends_on:
